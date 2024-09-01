@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% block main %}
+<h1>自己紹介</h1>
+<h2>実績</h2>
+<!-- サービスの個数を代入 -->
+<!-- 数字を３桁ずつでコンマで区切る機能を"変数｜intcomma"で可能。load humanizも忘れずにつけて、
+ プロジェクトファイルのsettings.pyのINSTALLED_APPSにhumanizを追加することも忘れずに。-->
+<p>{% now "Y年m月d日 H時i分" %}までに{{ num_services|intcomma }}個のサービスを作りました！</p>
+<h2>スキル</h2>
+<ul>
+    <!-- for/empty文でリスト構文を記述 -->
+    <!-- 変数に文字がある場合はfor文でskillに個数分表示 -->
+    {% for skill in skills %}
+    <li>{{ skill }}</li>
+    <!-- 変数に文字がない場合はスキルがありませんと表示 -->
+    {% empty %}
+    <li>スキルがありません。</li>
+    {% endfor %}
+</ul>
+{% endblock %}

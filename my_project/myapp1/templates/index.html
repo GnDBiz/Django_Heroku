@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h1>ホーム</h1>
+
+<!-- 変数でfor/elif/else文を使用 -->
+<!-- if 条件1 -->
+{% if username == "Luke" %}
+<!-- 変数usernameがLukeだったら、自分です！ -->
+<h1>自分です！</h1>
+<!-- elif 条件2 -->
+{% elif username %}
+<!-- 変数usernameがLuke以外だったら、"変数"さん、ようこそ！ -->
+<h1>{{ username }}さん、ようこそ！</h1>
+<!-- else どちらにも当てはまらない場合 -->
+{% else %}
+<!-- 変数usernameがnullだったら、匿名さん、ようこそ！-->
+<h1>匿名さん、ようこそ！</h1>
+{% endif %}
+
+{% endblock %}
